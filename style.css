@@ -1,0 +1,343 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+:root {
+    --LimeGreen: hsl(163, 72%, 41%);
+    --BrightRed: hsl(356, 69%, 56%);
+    --Facebook: hsl(208, 92%, 53%);
+    --Twitter: hsl(203, 89%, 53%);
+    --Instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+    --YouTube: hsl(348, 97%, 39%);
+    --ToggleDark: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    --ToggleLight: hsl(230, 22%, 74%);
+    --bg: hsl(0, 0%, 100%);
+    --topbg: hsl(225, 100%, 98%);
+    --cardbg: hsl(227, 47%, 96%);
+    --text1: hsl(228, 12%, 44%);
+    --text2: hsl(230, 17%, 14%);
+}
+
+.dark {
+    --bg: hsl(230, 17%, 14%);
+    --topbg: hsl(232, 19%, 15%);
+    --cardbg: hsl(228, 28%, 20%);
+    --text1: hsl(228, 34%, 66%);
+    --text2: hsl(0, 0%, 100%);
+}
+
+
+
+body {
+    background-color: var(--bg);
+    font-family: 'Inter', sans-serif;
+    transition: all 0.5s ease;
+}
+
+.bgtwo {
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    background-color: var(--topbg);
+    z-index: -1;
+    left: 0;
+    top: 0;
+    border-radius: 0 0 25px 25px;
+    transition: all 0.5s ease;
+}
+
+/* Switch toggle */
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 60px;
+    height: 30px;
+    background: var(--ToggleLight);
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked+label {
+    background-image: var(--ToggleDark);
+}
+
+input:checked+label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+/* End switch toggle */
+
+header .container {
+    display: flex;
+}
+
+.headertitle h2 {
+    color: var(--text2);
+    margin-bottom: 0px;
+}
+
+.headertitle p {
+    color: var(--text1);
+    margin-top: 4px;
+}
+
+.darkmode {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.darkmode h4 {
+    color: var(--text1);
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--ToggleLight);
+}
+
+section {
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+}
+
+section .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.card {
+    background-color: var(--cardbg);
+    padding: 20px 50px;
+    border-radius: 4px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+}
+
+.card:nth-child(1) {
+    border-top: 6px solid var(--Facebook);
+}
+
+.card:nth-child(2) {
+    border-top: 6px solid var(--Twitter);
+}
+
+.card:nth-child(3) {
+    background:
+        linear-gradient(to right, #fdc468, #ffa263, #ff806c, #f9607f, #df4996) top/100% 5px no-repeat,
+        var(--cardbg);
+
+}
+
+.card:nth-child(4) {
+    border-top: 6px solid var(--YouTube);
+}
+
+.card .socialuser {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.socialuser p,
+header p {
+    font-weight: 700;
+    color: var(--text1);
+}
+
+.followers h1 {
+    font-size: 64px;
+    margin-bottom: 4px;
+    margin-top: 10px;
+    color: var(--text2);
+
+}
+
+.followers p {
+    color: var(--text1);
+    letter-spacing: 6px;
+    text-align: center;
+}
+
+.updown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.updown img,
+footer img {
+    width: 10px;
+    height: 10px;
+}
+
+.updown p,
+footer p {
+    font-weight: 700;
+}
+
+.card:not(:nth-child(4)) .updown p {
+    color: var(--LimeGreen);
+}
+
+.card:nth-child(4) .updown p {
+    color: var(--BrightRed);
+}
+
+.sectwo .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.sectwo .container h2 {
+    color: var(--text2);
+    margin-bottom: 0;
+}
+
+.infocards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+.infocard {
+    background-color: var(--cardbg);
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.infocard header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.infocard footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+footer div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+footer h2 {
+    font-size: 54px;
+    color: var(--text1);
+    margin: 0;
+}
+
+
+.card,
+.infocard {
+    transition: 0.5s all ease;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+    .container {
+        margin: auto;
+        max-width: 740px;
+    }
+
+    header .container {
+        flex-direction: column;
+    }
+
+    .darkmode {
+        justify-content: space-between;
+    }
+
+    .line {
+        display: block;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        margin: auto;
+    }
+
+    header .container {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .line {
+        display: none;
+    }
+
+
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+        margin: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        margin: auto;
+    }
+}
